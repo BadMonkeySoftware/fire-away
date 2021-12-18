@@ -1,0 +1,121 @@
+--
+-- For more information on build.settings, see the Project Build Settings guide at:
+-- https://docs.coronalabs.com/guide/distribution/buildSettings
+--
+settings =
+{
+	splashScreen = 
+	{
+		enable = true 
+	},
+	orientation =
+	{
+		-- Supported values for orientation:
+		-- portrait, portraitUpsideDown, landscapeLeft, landscapeRight
+		 default = "portrait",
+		--default = "landscapeRight",
+		--supported = { "portrait", "landscapeRight"},
+		supported = { "portrait"},
+	},
+
+	--
+	-- Android section
+	--
+	android =
+	{
+		usesPermissions =
+		{
+			"com.android.vending.BILLING",
+			"android.permission.INTERNET",
+		},
+	},
+
+	--
+	-- iOS section
+	--
+	iphone =
+	{
+        --iCloud = true, -- Default
+        iCloud = { ["kvstore-identifier"] = "com.badmonkeysoftware.FireAwaySharedKVS" },
+		xcassets = "Images.xcassets",
+		plist =
+		{
+            UIPrerenderedIcon = true,
+            UILaunchStoryboardName = 'launchscreen',
+            UIBackgroundModes = {'remote-notification'},
+			UIStatusBarHidden = false,
+			UILaunchStoryboardName = "LaunchScreen",
+		},
+        skipPNGCrush = true
+	},
+
+	--
+	-- tvOS section
+	--
+    tvos =
+    {
+    },
+	--
+	-- macOS section
+	--
+    macos =
+    {
+        -- Optional (only for use with macOS desktop apps)
+        iCloud = true,
+    },
+	--
+	-- Plugins section
+	--
+	plugins =
+	{
+		["plugin.animation"] =
+        {
+            publisherId = "com.coronalabs"
+        },
+		--["plugin.google.iap.v3"] =
+		--{
+		--	publisherId = "com.coronalabs",
+		--	supportedPlatforms = { android=true }
+		--},
+		["plugin.google.iap.billing"] =
+        {
+            publisherId = "com.coronalabs"
+        },
+		["CoronaProvider.gameNetwork.apple"] =
+        {
+            publisherId = "com.coronalabs"
+        },
+        ['plugin.iCloud'] = {publisherId = 'com.coronalabs', supportedPlatforms = {iphone = true, appletvos = true, ['iphone-sim'] = true, osx = true}},
+        ['plugin.bit'] = {publisherId = 'com.coronalabs'} -- Needed for Tiled loader
+	},
+
+	--
+	-- Project section
+	--
+	excludeFiles =
+	{
+		-- Exclude unnecessary files for each platform
+		all = { "Icon.png", "Images.xcassets", "leveltest.json", "zLevels/*", "yLevels/*",
+			"zQuestLevels/*","zSwipeBrickLevels/*","yQuestLevels/*","ySwipeBrickLevels/*",
+			'jeremy.json','sarah.json',
+			'*.js',
+			'package*.json',
+            'Banner-*.png',
+			'node_modules/*',
+            'Icon-*dpi.png',
+            'Icon-ouya-xiaomi.png',
+            'Icon-ouya.png',
+            'Icon-tvOS-*.png',
+            '*.icns',
+			'readme.MD',
+            '*.ico',
+            'icon1024.png',
+            'icon1024-iOS.png',
+            'key.der',
+            '*.keystore'
+			},
+		android = { "LaunchScreen.storyboardc", },
+		ios = { "AndroidResources" },
+		tvos = { "AndroidResources" }
+	},
+}
