@@ -101,7 +101,7 @@ function scene:create( event )
 
     -- go back button
     local goBackButton = widget.newButton({
-        x = _ContentWidth - 35 + display.screenOriginX, y = _ContentHeight * .9,
+        x = _ContentWidth - 35 + display.screenOriginX, y = _ContentHeight * .9 + display.safeScreenOriginY,
         width = 50, height = 50,
         defaultFile = ui.buttons.goBack,
         overFile = ui.buttons.goBackOver,
