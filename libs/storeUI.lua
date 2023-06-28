@@ -220,7 +220,7 @@ function storeUI.newBuyButton ( product, x, y)
 
 	local buyThis = function ( productId )
 
-		function printWaitingForTransaction( )
+		local function printWaitingForTransaction( )
 			storeUI.printToConsole( "Waiting for transaction on " .. tostring( productId ) .. " to complete..." )
             local spinner = widget.newSpinner{
                 x = x or display.contentCenterX,
@@ -262,6 +262,9 @@ function storeUI.newBuyButton ( product, x, y)
 		elseif not store.canMakePurchases then
 			native.showAlert( "Notice", "Store purchases are not available, please try again later", { "OK" } )
 			timer.performWithDelay( 2000, storeUI.printOptionPrompt )
+		elseif not product.isIAP then 
+			-- storeUI.addGemsFromPurchase()
+			-- databox[product.databox] = databox[product.databox] + product.quantity
 		elseif productId then
 			print( "Ka-ching! Purchasing " .. tostring( productId ) )
     		if platform == "android" then
@@ -279,7 +282,7 @@ function storeUI.newBuyButton ( product, x, y)
 		
 	end
 
-	function buyThis_closure ( product )            
+	local function buyThis_closure ( product )
 		-- Closure wrapper for buyThis() to remember which button
 		return function ( event )
 			buyThis( product.productIdentifier )
