@@ -1,0 +1,20 @@
+Main Screen
+	Press Menu - Exits app
+Settings 
+	Press Menu - Goes Back to Main Screen (exit)
+About
+	Press Menu - Goes Back to Main Screen (exit)
+Store
+	Press Menu - Goes back to Main Screen or Purchase Confirm of 25 Gems after GameOver screen (exit)
+Levels
+	Press Menu - Goes Back to Main Screen (exit)
+GamePlay
+	Press Menu - Pauses Game (Pause)
+GameOver
+	Press Menu - Goes Back to Main Screen (Home)
+GemConfirm
+	Press Menu - Cancels and goes back to GameOver (X)
+PurchaseConfirm	
+	Press Menu - Cancels and goes back to GameOver OR ColorThemes (X)
+ColorThemes
+	Press Menu - Cancels and goes back to Settings (Exit)	
